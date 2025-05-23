@@ -1,3 +1,30 @@
-[gd_scene format=3 uid="uid://ce4wfgg2lrwh2"]
+[gd_scene load_steps=4 format=3 uid="uid://ce4wfgg2lrwh2"]
+
+[ext_resource type="Script" uid="uid://vphhgqmoujj3" path="res://scripts/enemy.gd" id="1_7p1mj"]
+[ext_resource type="Texture2D" uid="uid://vm41tl0yjgna" path="res://assets/plane.png" id="2_md0e3"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_md0e3"]
+radius = 30.0
+height = 206.0
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_7p1mj")
+MOVE_SPEED = 410
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.81899e-12, -4.54747e-13)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("2_md0e3")
+
+[node name="EnemyBody2D" type="RigidBody2D" parent="."]
+
+[node name="EnemyCollisionShape2D" type="CollisionShape2D" parent="EnemyBody2D"]
+position = Vector2(-1, -12)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_md0e3")
+
+[node name="EnemyOnScreenNotifier" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(1.43051e-06, 0.499994)
+scale = Vector2(10.2, 7.25)
+
+[connection signal="screen_exited" from="EnemyOnScreenNotifier" to="." method="_on_enemy_on_screen_notifier_screen_exited"]
