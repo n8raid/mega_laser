@@ -1,6 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://ohpiabp8mwux"]
+[gd_scene load_steps=5 format=3 uid="uid://ohpiabp8mwux"]
 
 [ext_resource type="Script" uid="uid://d0iq26s34kkqe" path="res://scripts/player.gd" id="1_3vyb7"]
+[ext_resource type="Texture2D" uid="uid://4po7br55nl3b" path="res://assets/tank.png" id="2_g2els"]
+[ext_resource type="Texture2D" uid="uid://xc68vo4r0hkl" path="res://assets/gun.png" id="3_dqkch"]
 
-[node name="Player" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhqgy"]
+radius = 30.1496
+
+[node name="Player" type="Area2D"]
 script = ExtResource("1_3vyb7")
+MOVE_SPEED = 345
+
+[node name="Tank" type="Sprite2D" parent="."]
+position = Vector2(-0.200001, 7.6096)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("2_g2els")
+
+[node name="Gun" type="Sprite2D" parent="."]
+position = Vector2(-0.200001, -0.390396)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("3_dqkch")
+offset = Vector2(0, -497.28)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 10)
+shape = SubResource("CircleShape2D_qhqgy")
