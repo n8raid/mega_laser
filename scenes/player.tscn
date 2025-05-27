@@ -30,6 +30,5 @@ shape = SubResource("CircleShape2D_qhqgy")
 
 [node name="GunTimer" type="Timer" parent="."]
 wait_time = 0.5
-autostart = true
 
 [connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ogt4qkkhbgm"]
+[gd_scene load_steps=3 format=3 uid="uid://b1ogt4qkkhbgm"]
 
 [ext_resource type="PackedScene" uid="uid://ohpiabp8mwux" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://cu8ffnio4gmkm" path="res://scenes/bullet.tscn" id="2_0wfyh"]
 
 [node name="Main" type="Node"]
 
@@ -8,3 +9,5 @@
 
 [node name="Player" parent="." instance=ExtResource("1_o5qli")]
 position = Vector2(629, 578)
+
+[node name="Bullet" parent="." instance=ExtResource("2_0wfyh")]
