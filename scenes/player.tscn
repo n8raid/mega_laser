@@ -9,7 +9,9 @@ radius = 30.1496
 
 [node name="Player" type="Area2D"]
 script = ExtResource("1_3vyb7")
-MOVE_SPEED = 345
+gun_damage_up = 10
+gun_speed_up = 7
+gun_spread_up = 3
 
 [node name="Tank" type="Sprite2D" parent="."]
 position = Vector2(-0.200001, 7.6096)
@@ -25,3 +27,9 @@ offset = Vector2(0, -497.28)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 10)
 shape = SubResource("CircleShape2D_qhqgy")
+
+[node name="GunTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="GunTimer" to="." method="_on_gun_timer_timeout"]
